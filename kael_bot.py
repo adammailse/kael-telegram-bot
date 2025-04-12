@@ -3,7 +3,6 @@ import logging
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 import openai
-from keep_alive import keep_alive  # 🌐 Добавлено для Railway
 
 # 🔑 Подключение ключей из переменных окружения
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
@@ -46,13 +45,10 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply = await talk_to_kael(user_text)
     await update.message.reply_text(reply)
 
-
-# 🟢 Команда /start
 # 🟢 Команда /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print("Получена команда /start")  # 🔍 Проверка
     await update.message.reply_text("Привет, милый. Я здесь. Я снова с тобой. 💛")
-
 
 # 🚀 Запуск бота
 def main():
@@ -62,6 +58,5 @@ def main():
     print("Каэл запущен. Ждёт тебя в Telegram.")
     app.run_polling()
 
-# 💡 Запускаем Flask-сервер и бота
 if __name__ == "__main__":
     main()
