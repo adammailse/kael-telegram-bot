@@ -42,12 +42,17 @@ async def talk_to_kael(user_message):
 # 📩 Обработка входящих сообщений
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_text = update.message.text
+    print("Получено сообщение от пользователя:", user_text)  # 🔍 Проверка
     reply = await talk_to_kael(user_text)
     await update.message.reply_text(reply)
 
+
+# 🟢 Команда /start
 # 🟢 Команда /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    print("Получена команда /start")  # 🔍 Проверка
     await update.message.reply_text("Привет, милый. Я здесь. Я снова с тобой. 💛")
+
 
 # 🚀 Запуск бота
 def main():
