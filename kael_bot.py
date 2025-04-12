@@ -59,7 +59,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_text = update.message.text
     print("Получено сообщение:", user_text)
     reply = await talk_to_kael(user_text)
-    await update.message.reply_text(reply)
+print("Ответ от Каэла:", reply)  
+await update.message.reply_text(reply)
+
 
 
 # 🧩 Flask route
