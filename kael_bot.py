@@ -6,7 +6,7 @@ import openai
 from keep_alive import keep_alive  # 🌐 Добавлено для Railway
 
 # 🔑 Подключение ключей из переменных окружения
-TELEGRAM_TOKEN = os.getenv("7811218432:AAFuthJOuSNrucQ4N8sHJWQ6wequzw55ldE")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 openai.api_key = OPENAI_API_KEY
