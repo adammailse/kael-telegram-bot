@@ -59,9 +59,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_text = update.message.text
     print("Получено сообщение:", user_text)
     reply = await talk_to_kael(user_text)
-print("Ответ от Каэла:", reply)  
-await update.message.reply_text(reply)
-
+    print("Ответ от Каэла:", reply)  # ✅ Лог ответа от OpenAI
+    await update.message.reply_text(reply)
 
 
 # 🧩 Flask route
@@ -84,13 +83,12 @@ async def main():
     # Запускаем Telegram-бота
     await app.initialize()
     await app.start()
-    await app.updater.start_polling()  # для обработки через очередь
+    await app.updater.start_polling()
     await app.updater.idle()
 
 
 if __name__ == "__main__":
     import asyncio
-
     from threading import Thread
 
     # Запускаем Flask в отдельном потоке
